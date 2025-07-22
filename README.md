@@ -72,7 +72,7 @@ Generate a plot: plot_perf_vs_latency.png
 Overlay raw PyTorch latency as a baseline
 
 
-## 📊 Visualization Sample
+##📊 Visualization Sample
 🔴 Red dashed line: native PyTorch latency
 
 🔵 Blue curve: Triton inference performance across concurrent loads
