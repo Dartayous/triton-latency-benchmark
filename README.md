@@ -123,7 +123,7 @@ Dartayous
 🔧 Architect of this end-to-end benchmark suite
 
 
-✨ Future Enhancements
+## ✨ Future Enhancements
 Add argparse support to CLI tools
 
 Timestamped benchmark logging
@@ -142,9 +142,3 @@ This project evolved incrementally:
 🔍 Integrated SDK tools to measure latency and throughput
 
 🔁 Added CLI automation + visualization
-
-<<<<<<< HEAD
-🧼 Cleaned commit history and optimized structure for public release
-=======
-🧼 Cleaned commit history and optimized structure for public release
->>>>>>> af9c54e075360d2b6bff354330de1f3e71cc8f7e
