@@ -1,0 +1,13 @@
+FROM nvcr.io/nvidia/tritonserver:23.12-py3
+
+# Create directory for model repository inside container
+RUN mkdir -p /models
+
+# Copy your local model repo into container
+COPY ./model/my_model /models/my_model
+
+# Expose Triton REST and GRPC ports
+EXPOSE 8000 8001 8002
+
+# Start Triton Inference Server
+CMD ["tritonserver", "--model-repository=/models"]
