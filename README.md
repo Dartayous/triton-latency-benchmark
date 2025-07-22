@@ -72,7 +72,7 @@ Generate a plot: plot_perf_vs_latency.png
 Overlay raw PyTorch latency as a baseline
 
 
-📊 Visualization Sample
+## 📊 Visualization Sample
 🔴 Red dashed line: native PyTorch latency
 
 🔵 Blue curve: Triton inference performance across concurrent loads
@@ -103,7 +103,7 @@ venv/ — excluded entirely
 🔗 Users should download models separately or retrain locally.
 
 
-🧰 Tech Stack
+## 🧰 Tech Stack
 🐍 Python 3.x
 
 🔬 PyTorch + torchvision
@@ -116,14 +116,14 @@ venv/ — excluded entirely
 
 📈 CLI & visualization: perf_analyzer, matplotlib, pandas
 
-🎬 Author
+## 🎬 Author
 Dartayous
 🎞️ Hollywood VFX professional turned AI Engineer
 🧠 Specializing in deployment pipelines, performance optimization, and multimodal AI
 🔧 Architect of this end-to-end benchmark suite
 
 
-✨ Future Enhancements
+## ✨ Future Enhancements
 Add argparse support to CLI tools
 
 Timestamped benchmark logging
@@ -132,7 +132,7 @@ Web dashboard for real-time visualization
 
 GitHub Actions: CI for benchmark validation
 
-💡 About This Journey
+## 💡 About This Journey
 This project evolved incrementally:
 
 ✅ Started with raw PyTorch inference
