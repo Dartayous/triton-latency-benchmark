@@ -41,7 +41,7 @@ ai_deployment_day17/
 └── README.md
 
 
-🧪 Quick Start
+## 🧪 Quick Start
 1️⃣ Benchmark PyTorch Inference
 python scripts/measure_pytorch_baseline.py
 Runs 100 inferences using ResNet18 and logs the average latency to pytorch_baseline.txt.
@@ -72,7 +72,7 @@ Generate a plot: plot_perf_vs_latency.png
 Overlay raw PyTorch latency as a baseline
 
 
-##📊 Visualization Sample
+## 📊 Visualization Sample
 🔴 Red dashed line: native PyTorch latency
 
 🔵 Blue curve: Triton inference performance across concurrent loads
@@ -123,7 +123,7 @@ Dartayous
 🔧 Architect of this end-to-end benchmark suite
 
 
-## ✨ Future Enhancements
+✨ Future Enhancements
 Add argparse support to CLI tools
 
 Timestamped benchmark logging
