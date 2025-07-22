@@ -2,6 +2,28 @@
   <img src="images/Triton_Deployemt_Banner.png" alt="Triton_Deployemt_Banner" width="100%">
 </p>
 
+<p align="center">
+  <img src="images/Triton_Deployment_Banner.png" alt="Triton Deployment Banner" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-3.x-blue.svg?logo=python&logoColor=white" alt="Python Version">
+  </a>
+  <a href="https://www.nvidia.com/en-us/geforce/triton/">
+    <img src="https://img.shields.io/badge/NVIDIA-Triton-green.svg?logo=nvidia&logoColor=white" alt="NVIDIA Triton">
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License">
+  </a>
+  <a href="https://github.com/Dartayous/triton-latency-benchmark/issues">
+    <img src="https://img.shields.io/github/issues/Dartayous/triton-latency-benchmark" alt="GitHub Issues">
+  </a>
+  <a href="https://github.com/Dartayous/triton-latency-benchmark/pulls">
+    <img src="https://img.shields.io/github/issues-pr/Dartayous/triton-latency-benchmark" alt="GitHub Pull Requests">
+  </a>
+</p>
+
 # 🧠 Triton Latency Benchmark Suite  
 **Optimizing PyTorch Inference with NVIDIA Triton + Performance Visualization**
 
