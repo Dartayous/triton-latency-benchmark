@@ -14,3 +14,9 @@ venv/
 *.onnx
 *.dll
 *.lib
+
+model/*.pth
+model/*.onnx
+venv/
+*.dll
+*.lib
