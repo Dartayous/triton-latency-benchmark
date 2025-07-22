@@ -1,3 +1,16 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+
+__pycache__/
+*.png
+*.csv
+*.txt
+*.plan
+.env/
+venv/
+
+*.pth
+*.onnx
+*.dll
+*.lib

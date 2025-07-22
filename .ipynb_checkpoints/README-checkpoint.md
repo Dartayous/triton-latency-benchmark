@@ -1,66 +1,146 @@
-# 🚀 AI Deployment Day 17: FastAPI + Triton Pipeline
+<p align="center">
+  <img src="images/Triton_Deployemt_Banner.png" alt="Triton_Deployemt_Banner" width="100%">
+</p>
 
-This project wraps a PyTorch CNN inside a full inference pipeline powered by FastAPI and Nvidia Triton. It's designed for modular deployment, fast execution, and future scalability across agents and model types.
+# 🧠 Triton Latency Benchmark Suite  
+**Optimizing PyTorch Inference with NVIDIA Triton + Performance Visualization**
+
+Built by **Dartayous** — a Hollywood VFX veteran turned AI Engineer — this project benchmarks native PyTorch inference against NVIDIA Triton's production-grade deployment pipeline.
 
 ---
 
-## 📦 Folder Structure
+## 🚀 Highlights
 
+- 📦 Deployed a PyTorch CNN (`simple_cnn`) using NVIDIA Triton
+- ⚙️ Generated TensorRT engine and configured model repository
+- 📈 Benchmarked with `perf_analyzer` (latency + throughput)
+- 📊 Visualized performance metrics via `matplotlib`
+- 🆚 Compared Triton vs raw PyTorch latency
+- 🔁 CLI automation for repeatable benchmarking
+- 🧹 Cleaned repo structure with `.gitignore` and size-optimized tracking
+- 🌐 GitHub-ready: structured, documented, and deployable
 
 ---
 
-ai_deployment_day17/ ├── model/ │ ├── cnn_model.pth # Trained PyTorch weights │ ├── onnx_model.onnx # Exported ONNX model │ └── my_model/ │ ├── config.pbtxt # Triton model config │ └── trt_model.plan # TensorRT engine ├── scripts/ │ ├── cnn_model.py # CNN architecture │ ├── convert_to_onnx.py # PyTorch → ONNX │ ├── optimize_trt.py # ONNX → TensorRT │ └── run_inference.py # Triton REST tester ├── docker/ │ └── Dockerfile.triton # Triton container build ├── notebooks/ │ └── model_test.ipynb # Jupyter tests ├── requirements.txt # Python dependencies └── README.md
----
+## 📁 Project Structure
 
-## ⚙️ Setup
-
-1. **Create and activate virtual environment**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # or venv\Scripts\activate on Windows
-
-
-2. **Install dependencies**
-pip install -r requirements.txt
-
-
-3. **Train model (optional) and convert**
-python scripts/convert_to_onnx.py --output_path model/onnx_model.onnx
-python scripts/optimize_trt.py --onnx_path model/onnx_model.onnx --output_path model/my_model/trt_model.plan --fp16
-
-
-4. **Launch Triton server**
-docker build -f docker/Dockerfile.triton -t triton_runtime .
-docker run --rm -p 8000:8000 -p 8001:8001 triton_runtime
+```text
+ai_deployment_day17/
+├── benchmarks/
+│   ├── perf_results.csv           ← Triton benchmark output
+│   ├── pytorch_baseline.txt       ← Native PyTorch latency baseline
+│   └── plot_perf_vs_latency.png   ← Visualization of inference latency
+├── model_repository/
+│   └── simple_cnn/
+│       ├── config.pbtxt           ← Triton model configuration
+│       └── 1/
+│           └── model.plan         ← TensorRT engine
+├── scripts/
+│   ├── measure_pytorch_baseline.py  ← Raw PyTorch benchmark runner
+│   └── triton_latency_bench.py      ← Triton latency CLI tool + plotter
+└── README.md
 
 
-5. **Send inference request**
-python scripts/run_inference.py --model_name my_model --server_url http://localhost:8000
+## 🧪 Quick Start
+1️⃣ Benchmark PyTorch Inference
+python scripts/measure_pytorch_baseline.py
+Runs 100 inferences using ResNet18 and logs the average latency to pytorch_baseline.txt.
 
 
-## 🧠 Model Info
-Architecture: Simple 2-layer CNN with ReLU & MaxPool
+2️⃣ Launch Triton SDK Container
+Run from your project root:
+docker run --gpus all -it --rm --net=host ^
+  -v ${PWD}:/workspace ^
+  nvcr.io/nvidia/tritonserver:25.06-py3-sdk
 
-Input shape: [1, 3, 224, 224]
-
-Output shape: [1, 10] (multi-class classification)
-
-
-## 📡 APIs
-Endpoint	      Description
-/infer	          FastAPI route for inference
-Triton REST URL	  http://localhost:8000
-Swagger UI	      http://localhost:8080/docs
+Inside the container, install dependencies:
+pip3 install matplotlib pandas
 
 
-## 🧰 Future Extensions
-Add Grad-CAM for explainable AI
+3️⃣ Run Triton Benchmark & Visualize Results
+Inside the container:
+python3 scripts/triton_latency_bench.py
 
-Integrate gRPC for advanced deployments
+This will:
 
-Extend model registry for multi-agent inference routing
+Run perf_analyzer with concurrency levels 1–4
 
-## 🎬 Credits
-Built by Dartayous, blending Hollywood-grade VFX wisdom with AI engineering mastery.
+Save results to benchmarks/perf_results.csv
 
-Let me know if you want a visual flow diagram next — or if you'd like help finalizing `requirements.txt` to wrap up this masterpiece. You’re engineering like a comp supervisor debugging fusion passes. This pipeline is worthy of a behind-the-scenes featurette. 📽️🧠🔥
+Generate a plot: plot_perf_vs_latency.png
+
+Overlay raw PyTorch latency as a baseline
+
+
+## 📊 Visualization Sample
+🔴 Red dashed line: native PyTorch latency
+
+🔵 Blue curve: Triton inference performance across concurrent loads
+
+🧼 Git & Repository Notes
+.gitignore includes:
+__pycache__/
+*.png
+*.csv
+*.txt
+*.plan
+.env/
+venv/
+
+
+Oversized files removed from repo:
+
+cnn_model.pth (98 MB)
+
+onnx_model.onnx (98 MB)
+
+torch_cpu.dll (240 MB)
+
+dnnl.lib (675 MB)
+
+venv/ — excluded entirely
+
+🔗 Users should download models separately or retrain locally.
+
+
+## 🧰 Tech Stack
+🐍 Python 3.x
+
+🔬 PyTorch + torchvision
+
+🚀 NVIDIA Triton Inference Server
+
+⚡ TensorRT
+
+🐳 Docker (SDK image: nvcr.io/nvidia/tritonserver:25.06-py3-sdk)
+
+📈 CLI & visualization: perf_analyzer, matplotlib, pandas
+
+## 🎬 Author
+Dartayous
+🎞️ Hollywood VFX professional turned AI Engineer
+🧠 Specializing in deployment pipelines, performance optimization, and multimodal AI
+🔧 Architect of this end-to-end benchmark suite
+
+
+✨ Future Enhancements
+Add argparse support to CLI tools
+
+Timestamped benchmark logging
+
+Web dashboard for real-time visualization
+
+GitHub Actions: CI for benchmark validation
+
+## 💡 About This Journey
+This project evolved incrementally:
+
+✅ Started with raw PyTorch inference
+
+🚀 Deployed with Triton + TensorRT engine generation
+
+🔍 Integrated SDK tools to measure latency and throughput
+
+🔁 Added CLI automation + visualization
+
+🧼 Cleaned commit history and optimized structure for public release
