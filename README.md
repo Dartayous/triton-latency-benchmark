@@ -2,9 +2,6 @@
   <img src="images/Triton_Deployemt_Banner.png" alt="Triton_Deployemt_Banner" width="100%">
 </p>
 
-<p align="center">
-  <img src="images/Triton_Deployment_Banner.png" alt="Triton Deployment Banner" width="100%">
-</p>
 
 <p align="center">
   <a href="https://www.python.org/">
