@@ -40,6 +40,7 @@ ai_deployment_day17/
 │   └── triton_latency_bench.py      ← Triton latency CLI tool + plotter
 └── README.md
 
+```
 
 ## 🧪 Quick Start
 1️⃣ Benchmark PyTorch Inference
